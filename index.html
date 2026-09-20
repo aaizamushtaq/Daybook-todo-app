@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaiza's To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="profile">
+        <div class="avatar">
+          <!-- Placeholder avatar. To use a real photo, replace this <svg> block with:
+               <img class="avatar__img" src="your-photo.jpg" alt="Aaiza Mushtaq" /> -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="profile__text">
+          <h1 class="app__title">Aaiza Mushtaq's To-Dos</h1>
+          <p class="app__subtitle" id="task-count">0 tasks</p>
+        </div>
+      </div>
+
+      <div class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M21 21l-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <input id="search-input" type="text" placeholder="Search your tasks" autocomplete="off" />
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel--form">
+        <h2 class="panel__heading">New task</h2>
+
+        <form id="task-form">
+          <label class="field-label" for="task-input">Task</label>
+          <input
+            id="task-input"
+            class="field-input"
+            type="text"
+            placeholder="What needs doing?"
+            autocomplete="off"
+            required
+          />
+
+          <label class="field-label" for="task-description">Description <span class="field-label__optional">(optional)</span></label>
+          <textarea
+            id="task-description"
+            class="field-input field-textarea"
+            placeholder="Add a few more details…"
+            rows="3"
+          ></textarea>
+
+          <label class="field-label">Priority</label>
+          <div class="dots" id="priority-group" role="radiogroup" aria-label="Priority">
+            <button type="button" class="dot-option" data-priority="low" aria-label="Low priority">
+              <span class="dot dot--low"></span>
+              <span class="dot__caption">Low</span>
+            </button>
+            <button type="button" class="dot-option is-selected" data-priority="medium" aria-label="Medium priority">
+              <span class="dot dot--medium"></span>
+              <span class="dot__caption">Medium</span>
+            </button>
+            <button type="button" class="dot-option" data-priority="high" aria-label="High priority">
+              <span class="dot dot--high"></span>
+              <span class="dot__caption">High</span>
+            </button>
+          </div>
+
+          <button type="submit" class="btn-primary">Add task</button>
+          <p class="tip">Tip: press Ctrl + Enter to save quickly.</p>
+        </form>
+      </section>
+
+      <section class="panel panel--list">
+        <div class="list-toolbar">
+          <div class="filters" id="filters">
+            <button class="filters__btn is-active" data-filter="all">All</button>
+            <button class="filters__btn" data-filter="active">Active</button>
+            <button class="filters__btn" data-filter="completed">Done</button>
+          </div>
+          <button id="clear-completed" class="clear-btn">Clear done</button>
+        </div>
+
+        <ul id="task-list" class="task-list"></ul>
+
+        <div id="empty-state" class="empty-state">
+          <p>No tasks yet. Write your first one on the left.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

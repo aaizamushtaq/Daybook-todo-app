@@ -1,0 +1,9 @@
+{
+  "name": "daybook-todo-app",
+  "version": "1.0.0",
+  "description": "A simple To-Do List web application (HTML, CSS, JavaScript) with a GitHub Actions CI workflow.",
+  "scripts": {
+    "test": "node tests/basic.test.js"
+  },
+  "license": "MIT"
+}

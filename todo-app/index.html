@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daybook — To‑Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="page__header">
+      <h1 class="page__title">Daybook</h1>
+      <p class="page__subtitle">Today's tasks, kept in order.</p>
+    </header>
+
+    <section class="composer">
+      <form id="task-form" class="composer__form">
+        <input
+          id="task-input"
+          class="composer__input"
+          type="text"
+          placeholder="Add a task…"
+          autocomplete="off"
+          required
+        />
+        <select id="task-priority" class="composer__priority" aria-label="Priority">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button type="submit" class="composer__submit">Add</button>
+      </form>
+    </section>
+
+    <section class="board">
+      <div class="board__toolbar">
+        <div class="filters" id="filters">
+          <button class="filters__btn is-active" data-filter="all">All</button>
+          <button class="filters__btn" data-filter="active">Active</button>
+          <button class="filters__btn" data-filter="completed">Completed</button>
+        </div>
+        <button id="clear-completed" class="clear-btn">Clear completed</button>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+
+      <p id="empty-state" class="empty-state" hidden>
+        Nothing here yet. Add your first task above.
+      </p>
+    </section>
+
+    <footer class="page__footer">
+      <span id="task-count">0 tasks</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
