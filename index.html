@@ -35,11 +35,43 @@
       </div>
     </header>
 
+    <section class="stats">
+      <div class="priority-counts">
+        <div class="count-pill count-pill--low">
+          <span class="count-pill__dot"></span>
+          <span class="count-pill__label">Low</span>
+          <span class="count-pill__num" id="count-low">0</span>
+        </div>
+        <div class="count-pill count-pill--medium">
+          <span class="count-pill__dot"></span>
+          <span class="count-pill__label">Medium</span>
+          <span class="count-pill__num" id="count-medium">0</span>
+        </div>
+        <div class="count-pill count-pill--high">
+          <span class="count-pill__dot"></span>
+          <span class="count-pill__label">High</span>
+          <span class="count-pill__num" id="count-high">0</span>
+        </div>
+      </div>
+
+      <div class="ring" role="img" aria-label="Task completion progress">
+        <svg class="ring__svg" viewBox="0 0 84 84">
+          <circle class="ring__track" cx="42" cy="42" r="36" />
+          <circle id="ring-progress" class="ring__progress" cx="42" cy="42" r="36" />
+        </svg>
+        <div class="ring__label">
+          <span id="ring-done">0</span><span class="ring__slash">/</span><span id="ring-total">0</span>
+        </div>
+      </div>
+    </section>
+
     <main class="layout">
       <section class="panel panel--form">
-        <h2 class="panel__heading">New task</h2>
+        <h2 class="panel__heading" id="form-heading">New task</h2>
 
         <form id="task-form">
+          <input type="hidden" id="editing-id" value="" />
+
           <label class="field-label" for="task-input">Task</label>
           <input
             id="task-input"
@@ -74,7 +106,8 @@
             </button>
           </div>
 
-          <button type="submit" class="btn-primary">Add task</button>
+          <button type="submit" class="btn-primary" id="submit-btn">Add task</button>
+          <button type="button" class="btn-cancel" id="cancel-edit" hidden>Cancel edit</button>
           <p class="tip">Tip: press Ctrl + Enter to save quickly.</p>
         </form>
       </section>
@@ -89,7 +122,7 @@
           <button id="clear-completed" class="clear-btn">Clear done</button>
         </div>
 
-        <ul id="task-list" class="task-list"></ul>
+        <div id="task-grid" class="task-grid"></div>
 
         <div id="empty-state" class="empty-state">
           <p>No tasks yet. Write your first one on the left.</p>
